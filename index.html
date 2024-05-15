@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mobile Video Touch Pause</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+    #video-container {
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+    }
+    #video {
+        width: 100%;
+        height: 100%;
+    }
+</style>
+</head>
+<body>
+
+<div id="video-container">
+    <video id="video" autoplay loop>
+        <source src="PRICES .mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</div>
+
+<script>
+    var video = document.getElementById('video');
+    var isPaused = false;
+
+    // Pause/resume video on touch
+    document.addEventListener('touchstart', function() {
+        if (!isPaused) {
+            video.pause();
+            isPaused = true;
+        } else {
+            video.play();
+            isPaused = false;
+        }
+    });
+
+    // Hide controls
+    video.controls = false;
+</script>
+
+</body>
+</html>
